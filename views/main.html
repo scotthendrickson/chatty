@@ -1,7 +1,10 @@
 <div class="header">
-  <h3 class="text-muted">chatty</h3>
-</div>
+  <h3 class="text-muted"><div ng-model="userField" ng-init="userField=true"></div>{{userName}}</h3>
+  <form ng-submit="addUser(userNameSubmit)">
+    <input ng-blur="addUser(userNameSubmit)" type="text" ng-model='userNameSubmit' placeHolder="Enter User Name"  ng-hide="userName != null">
+  </form>
 
+</div>
 <h4>Latest Chats:</h4>
 <div class="jumbotron">
 
@@ -9,6 +12,10 @@
 		<input ng-model="newMessage" type="text" placeholder="Hello!">
 	</form>
 
-	<div ng-repeat="message in messages track by $index">{{ message }}</div>
+	<div ng-repeat="message in messages track by $index">
+    {{userName}}: "{{ message.message }}"   {{ message.timeStamp | date:"h:mm MMM/d/yyyy" }}
+
+    </div>
+  </div>
 
 </div>

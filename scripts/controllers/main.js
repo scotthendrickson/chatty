@@ -19,4 +19,8 @@ angular.module('chattyApp')
       'AngularJS',
       'Karma'
     ];
+
+    $scope.addUser = function(user){
+      $scope.userName = user;
+    }
   });
